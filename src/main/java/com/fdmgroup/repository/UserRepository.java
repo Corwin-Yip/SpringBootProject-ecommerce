@@ -4,8 +4,20 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.fdmgroup.model.User;
+
+/**
+ * Repository of User
+ * 
+ * @author Corwin.Yip
+ * @version 0.0.1
+ * @since 25/03/24
+ * 
+ */
+
+@Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
 	/**
 	 * It persists the user
