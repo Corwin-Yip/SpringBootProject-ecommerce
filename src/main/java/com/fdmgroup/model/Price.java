@@ -25,7 +25,7 @@ public class Price {
 	@Id
 	@ManyToOne
 	@JoinColumn(name = "FK_PRODUCT_ID")
-	private Product productId;
+	private Product product;
 
 	@Column(name = "PRICE")
 	private double price;
@@ -42,19 +42,19 @@ public class Price {
 	 * @param productId
 	 * @param price
 	 */
-	public Price(Product productId, double price) {
+	public Price(Product product, double price) {
 		super();
-		this.productId = productId;
+		this.product = product;
 		this.price = price;
 		this.datetime = LocalDateTime.now();
 	}
 
-	public int getProductId() {
-		return productId.getId();
+	public Product getProduct() {
+		return product;
 	}
 
-	public void setProductId(Product productId) {
-		this.productId = productId;
+	public void setProductId(Product product) {
+		this.product = product;
 	}
 
 	public double getPrice() {
