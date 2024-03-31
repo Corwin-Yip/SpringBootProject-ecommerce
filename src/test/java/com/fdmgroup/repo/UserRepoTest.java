@@ -1,15 +1,19 @@
 package com.fdmgroup.repo;
 
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeEach;
+import static org.junit.Assert.*;
 
+import org.junit.jupiter.api.Test;
+//import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.fdmgroup.model.User;
@@ -17,13 +21,13 @@ import com.fdmgroup.repository.UserRepository;
 
 
 
-
-
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace=Replace.NONE)
+//@ComponentScan("com.fdmgroup.repository")
+//@SpringBootTest(classes = UserRepoTest.class)
 
-public class UserTest {
+public class UserRepoTest {
 	
 	
 	private User user;
@@ -46,6 +50,7 @@ public class UserTest {
 	void testPersist() {
 		//arrange
 		User expected = user;
+//		userRepository.persist(user);
 		userRepository.save(user);
 		entityManager.persist(user);
 		
