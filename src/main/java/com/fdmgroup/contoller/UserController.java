@@ -4,7 +4,9 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -75,5 +77,36 @@ public class UserController {
 		}
 
 	}
-
+	
+	 @GetMapping("/dashboard")
+	    public String dashboard(HttpSession session) {
+	        // Check if user is logged in
+	        if (session.getAttribute("currentUser") != null) {
+	            // User is logged in, show dashboard
+	            return "dashboard";
+	        } else {
+	            // User is not logged in, redirect to login page
+	            return "redirect:/login";
+	        }
+	    }
+	 
+	 @GetMapping("/logout")
+	    public String logout(HttpSession session) {
+	        // Invalidate the session to log out
+	    	System.out.println("User logged out.");
+	        session.invalidate();
+	        return "redirect:/login";
+	  }
+	 
+	 
+	 @GetMapping("users/{id}") // This will be coming in on the URL like http://localhost:8080/user/1
+	    public String getUser(@PathVariable("id") long userid, Model model) {
+	    	System.out.println("Accessing user ID: " + userid);
+	    	
+	    	User user = userService.findUser(userid);
+	    	System.out.println(user);
+	    	model.addAttribute("user", user);
+	    	
+	    	return("profile");
+	    }	
 }
