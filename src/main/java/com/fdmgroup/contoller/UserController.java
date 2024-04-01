@@ -100,7 +100,7 @@ public class UserController {
 	 
 	 
 	 @GetMapping("users/{id}") // This will be coming in on the URL like http://localhost:8080/user/1
-	    public String getUser(@PathVariable("id") long userid, Model model) {
+	    public String getUser(@PathVariable("id") int userid, Model model) {
 	    	System.out.println("Accessing user ID: " + userid);
 	    	
 	    	User user = userService.findUser(userid);

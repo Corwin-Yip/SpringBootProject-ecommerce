@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>User Profile Page</title>
+	</head>
+	<body>
+		<h1>User Profile:</h1>
+		<h2><span th:text="${user.username}"></span></h2>
+		<div th:object="${user}">
+			<ul>
+				<li th:text="*{username}"></li>
+				<li th:text="*{password}"></li>				
+			</ul>
+		</div>
+		<p>
+			<a th:href="@{/users/(username=${user.username})}">
+				Access <span th:text="${user.username}"></span>'s profile by name
+			</a>
+		</p>
+		<p>
+			<a th:href="@{/}">Return to main page</a>
+		</p>
+	</body>
+</html>
