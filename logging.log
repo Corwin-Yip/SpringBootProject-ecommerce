@@ -1,0 +1,29 @@
+INFO  | 2024-04-02 01:23:31 | [restartedMain] logging.DeferredLog (DeferredLog.java:252) - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+INFO  | 2024-04-02 01:23:31 | [restartedMain] logging.DeferredLog (DeferredLog.java:252) - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+INFO  | 2024-04-02 01:23:32 | [restartedMain] config.RepositoryConfigurationDelegate (RepositoryConfigurationDelegate.java:139) - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+INFO  | 2024-04-02 01:23:32 | [restartedMain] config.RepositoryConfigurationDelegate (RepositoryConfigurationDelegate.java:208) - Finished Spring Data repository scanning in 36 ms. Found 5 JPA repository interfaces.
+INFO  | 2024-04-02 01:23:32 | [restartedMain] tomcat.TomcatWebServer (TomcatWebServer.java:109) - Tomcat initialized with port 8080 (http)
+INFO  | 2024-04-02 01:23:32 | [restartedMain] logging.DirectJDKLog (DirectJDKLog.java:173) - Initializing ProtocolHandler ["http-nio-8080"]
+INFO  | 2024-04-02 01:23:32 | [restartedMain] logging.DirectJDKLog (DirectJDKLog.java:173) - Starting service [Tomcat]
+INFO  | 2024-04-02 01:23:32 | [restartedMain] logging.DirectJDKLog (DirectJDKLog.java:173) - Starting Servlet engine: [Apache Tomcat/10.1.19]
+INFO  | 2024-04-02 01:23:32 | [restartedMain] logging.DirectJDKLog (DirectJDKLog.java:173) - Initializing Spring embedded WebApplicationContext
+INFO  | 2024-04-02 01:23:32 | [restartedMain] context.ServletWebServerApplicationContext (ServletWebServerApplicationContext.java:296) - Root WebApplicationContext: initialization completed in 991 ms
+INFO  | 2024-04-02 01:23:32 | [restartedMain] util.LogHelper (LogHelper.java:31) - HHH000204: Processing PersistenceUnitInfo [name: default]
+INFO  | 2024-04-02 01:23:33 | [restartedMain] hibernate.Version (Version.java:44) - HHH000412: Hibernate ORM core version 6.4.4.Final
+INFO  | 2024-04-02 01:23:33 | [restartedMain] internal.RegionFactoryInitiator (RegionFactoryInitiator.java:50) - HHH000026: Second-level cache disabled
+INFO  | 2024-04-02 01:23:33 | [restartedMain] persistenceunit.SpringPersistenceUnitInfo (SpringPersistenceUnitInfo.java:87) - No LoadTimeWeaver setup: ignoring JPA class transformer
+INFO  | 2024-04-02 01:23:33 | [restartedMain] hikari.HikariDataSource (HikariDataSource.java:110) - HikariPool-1 - Starting...
+INFO  | 2024-04-02 01:23:33 | [restartedMain] pool.HikariPool (HikariPool.java:565) - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5c62c920
+INFO  | 2024-04-02 01:23:33 | [restartedMain] hikari.HikariDataSource (HikariDataSource.java:123) - HikariPool-1 - Start completed.
+WARN  | 2024-04-02 01:23:33 | [restartedMain] internal.DialectFactoryImpl (DialectFactoryImpl.java:153) - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+INFO  | 2024-04-02 01:23:34 | [restartedMain] internal.JtaPlatformInitiator (JtaPlatformInitiator.java:58) - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+INFO  | 2024-04-02 01:23:34 | [restartedMain] jpa.AbstractEntityManagerFactoryBean (AbstractEntityManagerFactoryBean.java:437) - Initialized JPA EntityManagerFactory for persistence unit 'default'
+INFO  | 2024-04-02 01:23:34 | [restartedMain] query.QueryEnhancerFactory (QueryEnhancerFactory.java:49) - Hibernate is in classpath; If applicable, HQL parser will be used.
+WARN  | 2024-04-02 01:23:34 | [restartedMain] jpa.JpaBaseConfiguration$JpaWebConfiguration (JpaBaseConfiguration.java:232) - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+INFO  | 2024-04-02 01:23:34 | [restartedMain] servlet.WelcomePageHandlerMapping (WelcomePageHandlerMapping.java:59) - Adding welcome page template: index
+INFO  | 2024-04-02 01:23:35 | [restartedMain] autoconfigure.OptionalLiveReloadServer (OptionalLiveReloadServer.java:59) - LiveReload server is running on port 35729
+INFO  | 2024-04-02 01:23:35 | [restartedMain] logging.DirectJDKLog (DirectJDKLog.java:173) - Starting ProtocolHandler ["http-nio-8080"]
+INFO  | 2024-04-02 01:23:35 | [restartedMain] tomcat.TomcatWebServer (TomcatWebServer.java:241) - Tomcat started on port 8080 (http) with context path ''
+INFO  | 2024-04-02 01:24:30 | [http-nio-8080-exec-1] logging.DirectJDKLog (DirectJDKLog.java:173) - Initializing Spring DispatcherServlet 'dispatcherServlet'
+INFO  | 2024-04-02 01:24:30 | [http-nio-8080-exec-1] servlet.FrameworkServlet (FrameworkServlet.java:532) - Initializing Servlet 'dispatcherServlet'
+INFO  | 2024-04-02 01:24:30 | [http-nio-8080-exec-1] servlet.FrameworkServlet (FrameworkServlet.java:554) - Completed initialization in 1 ms

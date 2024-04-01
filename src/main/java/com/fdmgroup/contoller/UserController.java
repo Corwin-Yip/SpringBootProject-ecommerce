@@ -1,7 +1,9 @@
 package com.fdmgroup.contoller;
 
-import java.util.Optional;
 
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 
 import com.fdmgroup.model.User;
 import com.fdmgroup.repository.UserRepository;
@@ -19,6 +22,8 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class UserController {
+	
+	private static final Logger LOGGER = LogManager.getLogger(UserController.class);
 
 	@Autowired
 	private UserRepository userRepository;
@@ -94,6 +99,7 @@ public class UserController {
 //		Authentication successful; set user session
 			System.out.println("Authentication was successful!");
 			session.setAttribute("currentUser", username);
+			LOGGER.info("User " +  username + " Sucess login: ");
 			return "redirect:/user/" + username;
 		} else {
 			// Authentication failed
