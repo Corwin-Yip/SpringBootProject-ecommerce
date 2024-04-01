@@ -25,7 +25,7 @@ public interface ProductRepository  extends JpaRepository<Product, Integer>{
 	 * It persists the product
 	 * @param product This is the Product object
 	 */
-	void persist(Product product);
+//	void persist(Product product);
 	
 	/**
 	 * It finds the product by id
@@ -51,7 +51,7 @@ public interface ProductRepository  extends JpaRepository<Product, Integer>{
 	 * It update the product
 	 * @param updatedProduct This method update the Product
 	 */
-	void update(Product updatedProduct);
+//	void update(Product updatedProduct);
 	
 	/**
 	 * It finds all the product

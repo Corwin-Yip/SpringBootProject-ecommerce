@@ -2,6 +2,8 @@ package com.fdmgroup.model;
 
 import java.util.Objects;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -36,18 +38,30 @@ public class User {
 
 	@Column(name = "PASSWORD", nullable = false)
 	private String password;
-
+	
+	@Autowired
 	@Column(name = "FIRST_NAME", updatable = false)
 	private String firstName;
-
+	
+	@Autowired
 	@Column(name = "LAST_NAME", updatable = false)
 	private String lastName;
 
+	@Autowired
 	@Column(name = "ADDRESS")
 	private String address;
 
 	public User() {
 		super();
+		setFirstName("empty");
+		setLastName("empty");
+		setAddress("empty");
+	}
+	
+	public User(String username, String password) {
+		super();
+		this.username = username;
+		this.password = password;
 	}
 
 	/**

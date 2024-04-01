@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 
 import com.fdmgroup.model.Price;
+import com.fdmgroup.model.Product;
 
 /**
  * Repository of Price
@@ -20,23 +21,23 @@ import com.fdmgroup.model.Price;
 
 @Repository
 
-public interface PriceRepository extends JpaRepository<Price, Integer> {
+public interface PriceRepository extends JpaRepository<Price, Product> {
 	/**
 	 * It persists the price
 	 * @param price This is the Price object
 	 */
-	void persist(Price price);
+//	void persist(Price price);
 	
 	/**
 	 * It finds the price by id
 	 * @param id this is the ID
 	 * @return it returns the price according to the price id
 	 */
-	Optional<Price> findById(int id);
+//	Optional<Price> findById(int id);
 	
 	/**
 	 * It finds all the price
 	 * @return It returns a List of Price object
 	 */
-	List<Price> findAll();
+//	List<Price> findAll();
 }

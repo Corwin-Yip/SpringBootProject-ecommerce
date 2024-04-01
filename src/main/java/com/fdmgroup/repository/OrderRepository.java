@@ -26,14 +26,14 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
 	 * It persists the order
 	 * @param order this is the order object
 	 */
-	void persist(Order order);
+//	void persist(Order order);
 	
 	/**
 	 * It finds the order by id
 	 * @param id This is the Order id
 	 * @return return Order according to the ID
 	 */
-	Optional<Order> findByOrderId(int id);
+	Optional<Order> findById(int id);
 	
 	/**
 	 * It finds order by inputed User
@@ -47,6 +47,6 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
 	 * It deletes the order by id
 	 * @param id this is the order id to be deleted
 	 */
-	void deleteByOrderId(int id);
+	void deleteById(int id);
 
 }

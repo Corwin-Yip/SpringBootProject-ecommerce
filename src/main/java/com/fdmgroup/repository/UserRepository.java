@@ -23,7 +23,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	 * It persists the user
 	 * @param user This is the User object
 	 */
-	void persist(User user);
+//	void persist(User user);
 
 	/**
 	 * It finds the user by id
@@ -49,7 +49,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	 * It update the user
 	 * @param updatedUser this is the User to be updated
 	 */
-	void update(User updatedUser);
+//	void update(User updatedUser);
 
 	/**
 	 * It finds all the user

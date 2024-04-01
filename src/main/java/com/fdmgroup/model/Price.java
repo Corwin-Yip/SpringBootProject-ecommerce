@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -23,6 +25,10 @@ import jakarta.persistence.NamedQuery;
 public class Price {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "PRICE_ID")
+	private int id;
+	
 	@ManyToOne
 	@JoinColumn(name = "FK_PRODUCT_ID")
 	private Product product;
@@ -47,6 +53,20 @@ public class Price {
 		this.product = product;
 		this.price = price;
 		this.datetime = LocalDateTime.now();
+	}
+	
+	
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
 	public Product getProduct() {

@@ -25,20 +25,20 @@ public interface ItemRepository extends JpaRepository<Item, Integer> {
 	 * It persists the item
 	 * @param item This is the Item object
 	 */
-	void persist(Item item);
+//	void persist(Item item);
 
 	/**
 	 * It finds the item by id
 	 * @param id This is Item id
 	 * @return return Item if it exists
 	 */
-	Optional<Item> findByItemId(int id);
+	Optional<Item> findById(int id);
 
 	/**
 	 * It deletes the item by id
 	 * @param id This is Item id This method delete the Item according to the id
 	 */
-	void deleteByItemId(int id);
+	void deleteById(int id);
 
 	/**
 	 * It finds all the item
