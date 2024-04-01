@@ -53,9 +53,32 @@ public class UserController {
 		User user = new User(username, password);
 		userService.registerNewUser(user);
 
-		return ("redirect:/login");
+		return "redirect:/login";
 	}
 	
+	@PostMapping("/setdetail")
+	public String setPersonalDetails(HttpServletRequest request, HttpSession session) {
+		System.out.println("User set details...");
+		String firstName = request.getParameter("firstName");
+		String lastName = request.getParameter("lastName");
+		String address = request.getParameter("address");
+		
+		// Save to DB
+		System.out.println(session.getAttribute("currentUser").toString());
+		User userFound = userService.findUser((session.getAttribute("currentUser").toString()));
+		System.out.println(userFound.getUsername()+userFound.getPassword()+"FirstName : " + firstName + " | LastName : " + lastName + "| Address : " + address);
+		userRepository.updateUserDetails(userFound.getUsername(),userFound.getPassword(),firstName,lastName,address);
+		
+//		User user = new User(username, password);
+//		userService.registerNewUser(user);
+
+		return "redirect:/login";
+	}
+	
+	@GetMapping("/setPersonalDetails")
+	public String setPersonalDetails() {
+		return "setPersonalDetails";
+	}
 	
 
 	@GetMapping("/login")
@@ -80,17 +103,7 @@ public class UserController {
 
 	}
 	
-	 @GetMapping("/dashboard")
-	    public String dashboard(HttpSession session) {
-	        // Check if user is logged in
-	        if (session.getAttribute("currentUser") != null) {
-	            // User is logged in, show dashboard
-	            return "dashboard";
-	        } else {
-	            // User is not logged in, redirect to login page
-	            return "redirect:/login";
-	        }
-	    }
+
 	 
 	 @GetMapping("/logout")
 	    public String logout(HttpSession session) {
@@ -103,14 +116,22 @@ public class UserController {
 	 
 
 	 
-	 @GetMapping("user/{username}") // This will be coming in on the URL like http://localhost:8080/user/1
-	    public String getUser(@PathVariable("username") String username, Model model) {
-	    	System.out.println("Accessing user username: " + username);
+	 @GetMapping("user/{username}") // This will be coming in on the URL like http://localhost:8080/user/John
+	    public String getUser(@PathVariable("username") String username, Model model,HttpSession session) {
+		 	if (session.getAttribute("currentUser") != null) {
+	            // User is logged in, show dashboard
+		 		System.out.println("Accessing user username: " + username);
+		    	
+		    	User user = userService.findUser(username);
+		    	System.out.println(user);
+		    	model.addAttribute("user", user);
+		    	
+		    	return("profile");
+	        } else {
+	            // User is not logged in, redirect to login page
+	            return "redirect:/login";
+	        }
+		 	
 	    	
-	    	User user = userService.findUser(username);
-	    	System.out.println(user);
-	    	model.addAttribute("user", user);
-	    	
-	    	return("profile");
 	    }	
 }
