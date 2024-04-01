@@ -53,9 +53,9 @@ public class User {
 
 	public User() {
 		super();
-		setFirstName("empty");
-		setLastName("empty");
-		setAddress("empty");
+		setFirstName("defaultFirstName");
+		setLastName("defaultLastName");
+		setAddress("defaultAddress");
 	}
 	
 	public User(String username, String password) {

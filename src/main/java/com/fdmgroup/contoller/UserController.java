@@ -55,6 +55,8 @@ public class UserController {
 
 		return ("redirect:/login");
 	}
+	
+	
 
 	@GetMapping("/login")
 	public String login() {
@@ -69,7 +71,7 @@ public class UserController {
 //		Authentication successful; set user session
 			System.out.println("Authentication was successful!");
 			session.setAttribute("currentUser", username);
-			return "redirect:/dashboard";
+			return "redirect:/user/" + username;
 		} else {
 			// Authentication failed
 			System.out.println("Authentication failed.");
@@ -99,11 +101,13 @@ public class UserController {
 	  }
 	 
 	 
-	 @GetMapping("users/{id}") // This will be coming in on the URL like http://localhost:8080/user/1
-	    public String getUser(@PathVariable("id") int userid, Model model) {
-	    	System.out.println("Accessing user ID: " + userid);
+
+	 
+	 @GetMapping("user/{username}") // This will be coming in on the URL like http://localhost:8080/user/1
+	    public String getUser(@PathVariable("username") String username, Model model) {
+	    	System.out.println("Accessing user username: " + username);
 	    	
-	    	User user = userService.findUser(userid);
+	    	User user = userService.findUser(username);
 	    	System.out.println(user);
 	    	model.addAttribute("user", user);
 	    	

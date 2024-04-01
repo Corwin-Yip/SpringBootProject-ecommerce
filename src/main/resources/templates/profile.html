@@ -10,14 +10,12 @@
 		<div th:object="${user}">
 			<ul>
 				<li th:text="*{username}"></li>
-				<li th:text="*{password}"></li>				
+				<li th:text="*{password}"></li>
+				
+									
 			</ul>
 		</div>
-		<p>
-			<a th:href="@{/users/(username=${user.username})}">
-				Access <span th:text="${user.username}"></span>'s profile by name
-			</a>
-		</p>
+		
 		<p>
 			<a th:href="@{/}">Return to main page</a>
 		</p>
