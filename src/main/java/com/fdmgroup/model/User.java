@@ -72,6 +72,8 @@ public class User {
 	 * @param lastName
 	 * @param address
 	 */
+	
+	
 	public User(String username, String password, String firstName, String lastName, String address) {
 		super();
 		this.username = username;
