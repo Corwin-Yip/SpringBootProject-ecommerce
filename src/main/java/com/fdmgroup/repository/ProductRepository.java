@@ -4,7 +4,11 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.fdmgroup.model.Product;
 
@@ -21,11 +25,7 @@ import com.fdmgroup.model.Product;
 @Repository
 
 public interface ProductRepository  extends JpaRepository<Product, Integer>{
-	/**
-	 * It persists the product
-	 * @param product This is the Product object
-	 */
-//	void persist(Product product);
+
 	
 	/**
 	 * It finds the product by id
@@ -47,11 +47,17 @@ public interface ProductRepository  extends JpaRepository<Product, Integer>{
 	 */
 	void deleteById(int id);
 	
+	
+
 	/**
 	 * It update the product
-	 * @param updatedProduct This method update the Product
+	 * @param name The product name
+	 * @param description The new description
 	 */
-//	void update(Product updatedProduct);
+	@Modifying
+	@Transactional
+	@Query("UPDATE Product p SET p.description = :description WHERE p.name = :name")
+	void updateProductDescription(@Param("name") String name, @Param("description") String description);
 	
 	/**
 	 * It finds all the product

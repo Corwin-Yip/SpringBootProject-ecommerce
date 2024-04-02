@@ -61,6 +61,13 @@ public class UserController {
 		return "redirect:/login";
 	}
 	
+	/**
+	 * 
+	 * 
+	 * @param request This is HttpServletRequest
+	 * @param session This is HttpSession
+	 * @return Go to /user/{username}
+	 */
 	@PostMapping("/setdetail")
 	public String setPersonalDetails(HttpServletRequest request, HttpSession session) {
 		
@@ -74,9 +81,6 @@ public class UserController {
 		LOGGER.info(userFound.getUsername()+ " updated " + "FirstName : " + firstName + " | LastName : " + lastName + "| Address : " + address);
 		userRepository.updateUserDetails(userFound.getUsername(),userFound.getPassword(),firstName,lastName,address);
 		
-//		User user = new User(username, password);
-//		userService.registerNewUser(user);
-
 		return "redirect:/user/"+ userFound.getUsername();
 	}
 	

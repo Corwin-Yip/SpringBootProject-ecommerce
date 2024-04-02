@@ -29,12 +29,6 @@ import jakarta.persistence.EntityTransaction;
 public interface UserRepository extends JpaRepository<User, Integer> {
 	
 	/**
-	 * It persists the user
-	 * @param user This is the User object
-	 */
-//	void persist(User user);
-
-	/**
 	 * It finds the user by id
 	 * @param id This is the user id
 	 * @return it returns the User according to the input id
@@ -54,12 +48,15 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	 */
 	void deleteById(int id);
 
+	
 	/**
 	 * It update the user
-	 * @param updatedUser this is the User to be updated
+	 * @param username 
+	 * @param password
+	 * @param firstName
+	 * @param lastName
+	 * @param address
 	 */
-//	void save(User updatedUser);
-//	void update(User updatedUser);
 	@Modifying
 	@Transactional
     @Query("UPDATE User u SET u.firstName = :firstName, u.lastName = :lastName, u.address = :address WHERE u.username = :username and u.password = :password")

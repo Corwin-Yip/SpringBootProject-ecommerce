@@ -22,12 +22,6 @@ import com.fdmgroup.model.Item;
 public interface ItemRepository extends JpaRepository<Item, Integer> {
 	
 	/**
-	 * It persists the item
-	 * @param item This is the Item object
-	 */
-//	void persist(Item item);
-
-	/**
 	 * It finds the item by id
 	 * @param id This is Item id
 	 * @return return Item if it exists

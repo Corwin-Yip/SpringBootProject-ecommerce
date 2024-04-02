@@ -22,11 +22,7 @@ import com.fdmgroup.model.User;
 @Repository
 
 public interface OrderRepository extends JpaRepository<Order, Integer> {
-	/**
-	 * It persists the order
-	 * @param order this is the order object
-	 */
-//	void persist(Order order);
+
 	
 	/**
 	 * It finds the order by id
