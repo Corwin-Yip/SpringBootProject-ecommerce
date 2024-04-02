@@ -53,7 +53,7 @@ public class UserController {
 		System.out.println("User registration processing...");
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		System.out.println("Username : " + username + " | Password : " + password);
+		LOGGER.info("New register User : "+ username);
 		// Save to DB
 		User user = new User(username, password);
 		userService.registerNewUser(user);
@@ -63,21 +63,21 @@ public class UserController {
 	
 	@PostMapping("/setdetail")
 	public String setPersonalDetails(HttpServletRequest request, HttpSession session) {
-		System.out.println("User set details...");
+		
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
 		String address = request.getParameter("address");
 		
 		// Save to DB
-		System.out.println(session.getAttribute("currentUser").toString());
+		
 		User userFound = userService.findUser((session.getAttribute("currentUser").toString()));
-		System.out.println(userFound.getUsername()+userFound.getPassword()+"FirstName : " + firstName + " | LastName : " + lastName + "| Address : " + address);
+		LOGGER.info(userFound.getUsername()+ " updated " + "FirstName : " + firstName + " | LastName : " + lastName + "| Address : " + address);
 		userRepository.updateUserDetails(userFound.getUsername(),userFound.getPassword(),firstName,lastName,address);
 		
 //		User user = new User(username, password);
 //		userService.registerNewUser(user);
 
-		return "redirect:/login";
+		return "redirect:/user/"+ userFound.getUsername();
 	}
 	
 	@GetMapping("/setPersonalDetails")
@@ -99,7 +99,7 @@ public class UserController {
 //		Authentication successful; set user session
 			System.out.println("Authentication was successful!");
 			session.setAttribute("currentUser", username);
-			LOGGER.info("User " +  username + " Sucess login: ");
+			LOGGER.info("User " +  username + " Sucess login");
 			return "redirect:/user/" + username;
 		} else {
 			// Authentication failed
@@ -114,7 +114,7 @@ public class UserController {
 	 @GetMapping("/logout")
 	    public String logout(HttpSession session) {
 	        // Invalidate the session to log out
-	    	System.out.println("User logged out.");
+		 	LOGGER.info("User logged out.");
 	        session.invalidate();
 	        return "redirect:/login";
 	  }
@@ -126,8 +126,7 @@ public class UserController {
 	    public String getUser(@PathVariable("username") String username, Model model,HttpSession session) {
 		 	if (session.getAttribute("currentUser") != null) {
 	            // User is logged in, show dashboard
-		 		System.out.println("Accessing user username: " + username);
-		    	
+		 				    	
 		    	User user = userService.findUser(username);
 		    	System.out.println(user);
 		    	model.addAttribute("user", user);

@@ -9,20 +9,20 @@
 		<h2><span th:text="${user.username}"></span></h2>
 		<div th:object="${user}">
 			<ul>
-				<li th:text="*{username}"></li>
-				<li th:text="*{password}"></li>
-				
-								
-			</ul>
-			
+				<li>User Name: <span th:text="*{username}"></span></li>
+    			<li>Password: <span th:text="*{password}"></span></li>
+				<li>First Name: <span th:text="*{firstName}"></span></li>
+				<li>Last Name: <span th:text="*{lastName}"></span></li>
+    			<li>Address: <span th:text="*{address}"></span></li>				
+			</ul>		
 			
 		</div>
 		
-		
 	
 		<p>
-			<a th:href="@{/}">Return to main page</a>
-			<a th:href="@{/setPersonalDetails}">add personal info</a>
+			<a th:href="@{/logout}">Log out</a>
+			<br>
+			<a th:href="@{/setPersonalDetails}">Personal infomation</a>
 		</p>
 	</body>
 </html>

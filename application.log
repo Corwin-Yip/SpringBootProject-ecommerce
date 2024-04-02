@@ -31,3 +31,6 @@
 2024-04-02T01:56:44.596+0800 INFO Started SpringEcommerceApplication in 3.558 seconds (process running for 4.24)
 2024-04-02T01:56:44.600+0800 INFO Application Start
 2024-04-02T08:20:33.542+0800 WARN HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6h23m50s678ms181µs).
+2024-04-02T08:26:18.251+0800 INFO Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-02T08:26:18.251+0800 INFO Initializing Servlet 'dispatcherServlet'
+2024-04-02T08:26:18.252+0800 INFO Completed initialization in 1 ms
