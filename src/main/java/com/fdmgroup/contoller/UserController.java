@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fdmgroup.model.User;
 import com.fdmgroup.repository.UserRepository;
@@ -96,21 +96,20 @@ public class UserController {
 	}
 
 	@PostMapping("/login")
-	public String processLogin(@RequestParam("username") String username, @RequestParam("password") String password,
-			HttpSession session) {
-		if (userService.containUser(username, password)) {
-			
-//		Authentication successful; set user session
-			System.out.println("Authentication was successful!");
-			session.setAttribute("currentUser", username);
-			LOGGER.info("User " +  username + " Sucess login");
-			return "redirect:/user/" + username;
-		} else {
-			// Authentication failed
-			System.out.println("Authentication failed.");
-			return "login";
-		}
-
+	public String processLogin(@RequestParam("username") String username,
+	                           @RequestParam("password") String password,
+	                           HttpSession session,
+	                           RedirectAttributes redirectAttributes) {
+	    if (userService.containUser(username, password)) {
+	        // Authentication successful; set user session
+	        session.setAttribute("currentUser", username);
+	        LOGGER.info("User " +  username + " successfully logged in");
+	        return "redirect:/user/" + username;
+	    } else {
+	        // Authentication failed
+	        redirectAttributes.addAttribute("error", "true");
+	        return "redirect:/login";
+	    }
 	}
 	
 
