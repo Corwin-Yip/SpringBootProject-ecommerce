@@ -7,14 +7,21 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 
+/**
+ * This is the Spring Boot Application class
+ */
 @SpringBootApplication
 public class SpringEcommerceApplication {
 	private static final Logger LOGGER = LogManager.getLogger(SpringEcommerceApplication.class);
+	/**
+	 * Start the spring boot 
+	 * @param args
+	 */
 	public static void main(String[] args) {
-		LOGGER.info("Application Start");
-		SpringApplication.run(SpringEcommerceApplication.class, args);
 		
+		SpringApplication.run(SpringEcommerceApplication.class, args);
 		LOGGER.info("Application Start");
+		
 
 	}
 }
