@@ -12,9 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fdmgroup.model.User;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.EntityTransaction;
 
 /**
  * Repository of User
