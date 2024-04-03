@@ -62,18 +62,27 @@ public class Product {
 		this.name = name;
 	}
 
-	public String getDiscription() {
+	
+
+	public String getDescription() {
 		return description;
 	}
 
-	public void setDiscription(String discription) {
-		this.description = discription;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public void updateDetails(Product updatedProduct) {
 		setName(updatedProduct.getName());
-		setDiscription(updatedProduct.getDiscription());
+		setDescription(updatedProduct.getDescription());
 	}
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", description=" + description + "]";
+	}
+	
+	
 
 }
 

@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.fdmgroup.model.Product;
 import com.fdmgroup.model.User;
 import com.fdmgroup.repository.UserRepository;
+import com.fdmgroup.service.ProductService;
 import com.fdmgroup.service.UserService;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -30,16 +32,31 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+    private ProductService productService;
 
 	@GetMapping("/") // http://localhost:8080/
 	public String slashIndex() {
 		return "index";
 	}
+	
+	@GetMapping("/index")
+	public String index() {
+		return ("index");
+	}
 
+	
 	@GetMapping("/register")
 	public String register() {
 		return ("register");
 	}
+	
+	@GetMapping("/product")
+	public String product() {
+		return ("product");
+	}
+	
 
 	/**
 	 * 
@@ -50,7 +67,7 @@ public class UserController {
 	 */
 	@PostMapping("/register")
 	public String processRegistration(HttpServletRequest request) {
-		System.out.println("User registration processing...");
+		LOGGER.info("User registration processing...");
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		LOGGER.info("New register User : "+ username);
@@ -89,10 +106,14 @@ public class UserController {
 		return "setPersonalDetails";
 	}
 	
-
 	@GetMapping("/login")
 	public String login() {
 		return "login";
+	}
+
+	@GetMapping("/admin")
+	public String admin() {
+		return "admin";
 	}
 
 	@PostMapping("/login")
@@ -100,7 +121,13 @@ public class UserController {
 	                           @RequestParam("password") String password,
 	                           HttpSession session,
 	                           RedirectAttributes redirectAttributes) {
-	    if (userService.containUser(username, password)) {
+		  if (username.equals("admin") && password.equals("admin")) {
+	            // Authentication successful; set user session
+			  LOGGER.info("Admin Authentication was successful!");
+	            session.setAttribute("currentUser", username);
+	            
+	            return "redirect:/AdminLogin";
+		  }else if (userService.containUser(username, password)) {
 	        // Authentication successful; set user session
 	        session.setAttribute("currentUser", username);
 	        LOGGER.info("User " +  username + " successfully logged in");
@@ -112,6 +139,14 @@ public class UserController {
 	        return "redirect:/login";
 	    }
 	}
+	
+	@GetMapping("/AdminLogin")
+    public String showProductList(Model model) {
+        model.addAttribute("products", productService.getAllProducts());
+        
+        LOGGER.info(productService.getAllProducts());
+        return "admin";
+    }
 	
 
 	 
@@ -143,4 +178,18 @@ public class UserController {
 		 	
 	    	
 	    }	
+	 
+	 
+	 @PostMapping("/add")
+	    public String addProduct(HttpServletRequest request) {
+	    	
+	    	String productName = request.getParameter("productName");
+			String description = request.getParameter("description");
+			
+			Product product = new Product(productName, description);
+			productService.addProduct(product);
+			
+			LOGGER.info( "register: " + product.toString()); 
+	        return "redirect:/AdminLogin"; // Redirect to the product list page
+	    }
 }

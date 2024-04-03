@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Admin Page</title>
+	</head>
+	<body>
+	<h1>This is an Admin Page</h1>
+		<h1>Product List</h1>
+		
+		
+		
+		
+
+		
+		
+		<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="product : ${products}">
+<!--          	<td th:text="${product}"></td> -->
+<!--          	<td th:text="${products}"></td> -->
+            <td th:text="${product.id}"></td>
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.description}"></td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+	
+		<p>add product</p>
+		<form method="post" action="add">
+			<!-- Use the 'placeholder' tag to be more helpful -->
+			<input type="text" name="productName" placeholder="product name">
+			<!-- Better to use input type="password" rather than "text" -->
+			<input type="text" name="description" placeholder="description">
+			<input type="submit" value="Register">
+		</form>
+		
+			
+		
+	</body>
+</html>
