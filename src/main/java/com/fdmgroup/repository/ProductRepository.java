@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fdmgroup.model.Product;
 
-
 /**
  * Repository of Product
  * 
@@ -23,43 +22,45 @@ import com.fdmgroup.model.Product;
  */
 
 @Repository
-public interface ProductRepository  extends JpaRepository<Product, Integer>{
+public interface ProductRepository extends JpaRepository<Product, Integer> {
 
-	
 	/**
 	 * It finds the product by id
+	 * 
 	 * @param id This is the product Id
 	 * @return It returns the product according to the input id
 	 */
 	Optional<Product> findById(int id);
-	
+
 	/**
 	 * It finds the product by name
+	 * 
 	 * @param productName This is the product Name
 	 * @return It returns the Product according to the input name
 	 */
 	Optional<Product> findByName(String name);
-	
+
 	/**
 	 * It deletes the product by id
+	 * 
 	 * @param id This is the product Id to be deleted
 	 */
 	void deleteById(int id);
-	
-	
 
 	/**
 	 * It update the product
-	 * @param name The product name
+	 * 
+	 * @param name        The product name
 	 * @param description The new description
 	 */
 	@Modifying
 	@Transactional
 	@Query("UPDATE Product p SET p.description = :description WHERE p.name = :name")
 	void updateProductDescription(@Param("name") String name, @Param("description") String description);
-	
+
 	/**
 	 * It finds all the product
+	 * 
 	 * @return It returns all the product in a List
 	 */
 	List<Product> findAll();

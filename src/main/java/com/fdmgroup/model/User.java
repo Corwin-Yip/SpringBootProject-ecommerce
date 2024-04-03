@@ -38,11 +38,11 @@ public class User {
 
 	@Column(name = "PASSWORD", nullable = false)
 	private String password;
-	
+
 	@Autowired
 	@Column(name = "FIRST_NAME", updatable = false)
 	private String firstName;
-	
+
 	@Autowired
 	@Column(name = "LAST_NAME", updatable = false)
 	private String lastName;
@@ -57,7 +57,7 @@ public class User {
 		setLastName("defaultLastName");
 		setAddress("defaultAddress");
 	}
-	
+
 	public User(String username, String password) {
 		super();
 		this.username = username;
@@ -65,15 +65,14 @@ public class User {
 	}
 
 	/**
-	 *  
+	 * 
 	 * @param username
 	 * @param password
 	 * @param firstName
 	 * @param lastName
 	 * @param address
 	 */
-	
-	
+
 	public User(String username, String password, String firstName, String lastName, String address) {
 		super();
 		this.username = username;
@@ -167,4 +166,3 @@ public class User {
 	}
 
 }
-

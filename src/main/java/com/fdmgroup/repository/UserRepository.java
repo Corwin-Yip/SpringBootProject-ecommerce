@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fdmgroup.model.User;
 
-
 /**
  * Repository of User
  * 
@@ -24,9 +23,10 @@ import com.fdmgroup.model.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
-	
+
 	/**
 	 * It finds the user by id
+	 * 
 	 * @param id This is the user id
 	 * @return it returns the User according to the input id
 	 */
@@ -34,6 +34,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
 	/**
 	 * It finds the user by name
+	 * 
 	 * @param username This is the user name
 	 * @return It returns the User according to the input name
 	 */
@@ -41,14 +42,15 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
 	/**
 	 * It deletes the user by id
+	 * 
 	 * @param id this is the id
 	 */
 	void deleteById(int id);
 
-	
 	/**
 	 * It update the user
-	 * @param username 
+	 * 
+	 * @param username
 	 * @param password
 	 * @param firstName
 	 * @param lastName
@@ -56,12 +58,13 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	 */
 	@Modifying
 	@Transactional
-    @Query("UPDATE User u SET u.firstName = :firstName, u.lastName = :lastName, u.address = :address WHERE u.username = :username and u.password = :password")
-    void updateUserDetails(@Param("username") String username, @Param("password") String password, @Param("firstName") String firstName, @Param("lastName") String lastName, @Param("address") String address);
-
+	@Query("UPDATE User u SET u.firstName = :firstName, u.lastName = :lastName, u.address = :address WHERE u.username = :username and u.password = :password")
+	void updateUserDetails(@Param("username") String username, @Param("password") String password,
+			@Param("firstName") String firstName, @Param("lastName") String lastName, @Param("address") String address);
 
 	/**
 	 * It finds all the user
+	 * 
 	 * @return It returns all the User in a list
 	 */
 	List<User> findAll();

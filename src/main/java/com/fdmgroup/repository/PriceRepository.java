@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-
 import com.fdmgroup.model.Price;
 import com.fdmgroup.model.Product;
 
@@ -23,16 +22,17 @@ import com.fdmgroup.model.Product;
 
 public interface PriceRepository extends JpaRepository<Price, Product> {
 
-	
 	/**
 	 * It finds the price by id
+	 * 
 	 * @param id this is the ID
 	 * @return it returns the price according to the price id
 	 */
 	Optional<Price> findById(int id);
-	
+
 	/**
 	 * It finds all the price
+	 * 
 	 * @return It returns a List of Price object
 	 */
 	List<Price> findAll();

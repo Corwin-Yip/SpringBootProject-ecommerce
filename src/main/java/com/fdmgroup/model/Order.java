@@ -93,7 +93,4 @@ public class Order {
 		this.datetime = datetime;
 	}
 
-
-
 }
-

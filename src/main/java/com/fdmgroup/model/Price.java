@@ -28,7 +28,7 @@ public class Price {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "PRICE_ID")
 	private int id;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "FK_PRODUCT_ID")
 	private Product product;
@@ -54,8 +54,6 @@ public class Price {
 		this.price = price;
 		this.datetime = LocalDateTime.now();
 	}
-	
-	
 
 	public int getId() {
 		return id;
@@ -94,4 +92,3 @@ public class Price {
 	}
 
 }
-

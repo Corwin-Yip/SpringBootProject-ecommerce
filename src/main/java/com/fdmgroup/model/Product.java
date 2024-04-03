@@ -8,7 +8,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
 
-
 /**
  * Product class
  * 
@@ -62,8 +61,6 @@ public class Product {
 		this.name = name;
 	}
 
-	
-
 	public String getDescription() {
 		return description;
 	}
@@ -81,8 +78,5 @@ public class Product {
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", description=" + description + "]";
 	}
-	
-	
 
 }
-

@@ -27,22 +27,23 @@
 			
 			
 		</p>
-		
-		<table border="1">
-    <tr>
-        <th>Order ID</th>
-        <th>Item ID</th>
-        <th>Product Name</th>
-        <th>Order Date and Time</th>
-    </tr>
-    <tr th:each="order : ${orders}">
-        <td th:text="${order.id}"></td>
-        <td th:text="${order.item.id}"></td>
-        <td th:text="${order.item.product.name}"></td>
-        <td th:text="${#temporals.format(order.datetime, 'yyyy-MM-dd HH:mm:ss')}"></td>
-    </tr>
-</table>	
-			
-		<a th:href="@{/logout}">Log out</a>
+
+	<table border="1">
+		<tr>
+			<th>Order ID</th>
+			<th>Item ID</th>
+			<th>Product Name</th>
+			<th>Order Date and Time</th>
+		</tr>
+		<tr th:each="order : ${orders}">
+			<td th:text="${order.id}"></td>
+			<td th:text="${order.item.id}"></td>
+			<td th:text="${order.item.product.name}"></td>
+			<td
+				th:text="${#temporals.format(order.datetime, 'yyyy-MM-dd HH:mm:ss')}"></td>
+		</tr>
+	</table>
+
+	<a th:href="@{/logout}">Log out</a>
 	</body>
 </html>

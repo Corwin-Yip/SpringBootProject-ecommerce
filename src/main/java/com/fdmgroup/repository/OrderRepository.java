@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-
 import com.fdmgroup.model.Order;
 import com.fdmgroup.model.User;
 
@@ -23,24 +22,25 @@ import com.fdmgroup.model.User;
 
 public interface OrderRepository extends JpaRepository<Order, Integer> {
 
-	
 	/**
 	 * It finds the order by id
+	 * 
 	 * @param id This is the Order id
 	 * @return return Order according to the ID
 	 */
 	Optional<Order> findById(int id);
-	
+
 	/**
 	 * It finds order by inputed User
+	 * 
 	 * @param user this is the User object
 	 * @return It returns order according to the User
 	 */
 	Optional<List<Order>> findByUser(User user);
-	
-		
+
 	/**
 	 * It deletes the order by id
+	 * 
 	 * @param id this is the order id to be deleted
 	 */
 	void deleteById(int id);
