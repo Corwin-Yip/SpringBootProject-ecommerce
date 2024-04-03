@@ -132,7 +132,7 @@ public class UserController {
 	            // User is logged in, show dashboard
 		 				    	
 		    	User user = userService.findUser(username);
-		    	System.out.println(user);
+		    	
 		    	model.addAttribute("user", user);
 		    	
 		    	return("profile");
