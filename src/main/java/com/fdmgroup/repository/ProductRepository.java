@@ -38,7 +38,7 @@ public interface ProductRepository  extends JpaRepository<Product, Integer>{
 	 * @param productName This is the product Name
 	 * @return It returns the Product according to the input name
 	 */
-	Optional<Product> findByName(String productName);
+	Optional<Product> findByName(String name);
 	
 	/**
 	 * It deletes the product by id

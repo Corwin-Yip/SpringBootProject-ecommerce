@@ -2,6 +2,8 @@ package com.fdmgroup.contoller;
 
 
 
+import java.util.Optional;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +15,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.fdmgroup.model.Item;
+import com.fdmgroup.model.Order;
 import com.fdmgroup.model.Product;
 import com.fdmgroup.model.User;
+import com.fdmgroup.repository.ItemRepository;
+import com.fdmgroup.repository.ProductRepository;
 import com.fdmgroup.repository.UserRepository;
 import com.fdmgroup.service.ProductService;
 import com.fdmgroup.service.UserService;
@@ -35,6 +41,12 @@ public class UserController {
 	
 	@Autowired
     private ProductService productService;
+	
+	@Autowired
+	private ProductRepository productRepository;
+	
+	@Autowired
+	private ItemRepository itemRepository;
 
 	@GetMapping("/") // http://localhost:8080/
 	public String slashIndex() {
@@ -53,10 +65,39 @@ public class UserController {
 	}
 	
 	@GetMapping("/product")
-	public String product() {
+	public String product(HttpSession session, Model model) {
+		model.addAttribute("products", productService.getAllProducts());
+		String user = (String) session.getAttribute("currentUser");
+		
+//		model.addAttribute("user", user);
+		LOGGER.info(user);
+		LOGGER.info(session.getAttribute("currentUser").getClass()	); 
+		User currentUser = userRepository.findByUsername(user).get();
+//		LOGGER.info(user.toString());
+		model.addAttribute("user", currentUser);
 		return ("product");
 	}
 	
+	@PostMapping("/order")
+	public String makeOrder(HttpServletRequest request, HttpSession session) {
+		LOGGER.info("start ordering");
+		
+		String productName = request.getParameter("productName");
+		
+		String CurrentUsername = request.getParameter("username");
+		LOGGER.info("received order: "+ CurrentUsername + productName);
+		
+		Product product = productRepository.findByName(productName).get();
+		LOGGER.info("found "+ product);
+		
+		Item itemRequest = new Item(product);
+		
+		itemRepository.save(itemRequest);
+		
+		Order newOrder = new Order(userService.findUser(CurrentUsername),itemRequest);
+		LOGGER.info(newOrder.toString());
+		return "redirect:/user/" + CurrentUsername;
+	}
 
 	/**
 	 * 
@@ -165,7 +206,7 @@ public class UserController {
 	    public String getUser(@PathVariable("username") String username, Model model,HttpSession session) {
 		 	if (session.getAttribute("currentUser") != null) {
 	            // User is logged in, show dashboard
-		 				    	
+		 		LOGGER.info(session.getAttribute("currentUser")	);    	
 		    	User user = userService.findUser(username);
 		    	
 		    	model.addAttribute("user", user);
