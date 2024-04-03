@@ -58,7 +58,7 @@ public class Order {
 		super();
 		this.user = user;
 		this.item = item;
-		setdatetime(LocalDateTime.now());
+		setDatetime(LocalDateTime.now());
 	}
 
 	public int getId() {
@@ -85,13 +85,15 @@ public class Order {
 		this.item = item;
 	}
 
-	public LocalDateTime getdatetime() {
+	public LocalDateTime getDatetime() {
 		return datetime;
 	}
 
-	public void setdatetime(LocalDateTime datetimeColumn) {
-		this.datetime = datetimeColumn;
+	public void setDatetime(LocalDateTime datetime) {
+		this.datetime = datetime;
 	}
+
+
 
 }
 

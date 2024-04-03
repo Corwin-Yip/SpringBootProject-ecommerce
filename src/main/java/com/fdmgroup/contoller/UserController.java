@@ -20,6 +20,7 @@ import com.fdmgroup.model.Order;
 import com.fdmgroup.model.Product;
 import com.fdmgroup.model.User;
 import com.fdmgroup.repository.ItemRepository;
+import com.fdmgroup.repository.OrderRepository;
 import com.fdmgroup.repository.ProductRepository;
 import com.fdmgroup.repository.UserRepository;
 import com.fdmgroup.service.ProductService;
@@ -47,6 +48,9 @@ public class UserController {
 	
 	@Autowired
 	private ItemRepository itemRepository;
+	
+	@Autowired
+	private OrderRepository orderRepository;
 
 	@GetMapping("/") // http://localhost:8080/
 	public String slashIndex() {
@@ -95,6 +99,8 @@ public class UserController {
 		itemRepository.save(itemRequest);
 		
 		Order newOrder = new Order(userService.findUser(CurrentUsername),itemRequest);
+		
+		orderRepository.save(newOrder);
 		LOGGER.info(newOrder.toString());
 		return "redirect:/user/" + CurrentUsername;
 	}
@@ -208,7 +214,7 @@ public class UserController {
 	            // User is logged in, show dashboard
 		 		LOGGER.info(session.getAttribute("currentUser")	);    	
 		    	User user = userService.findUser(username);
-		    	
+		    	model.addAttribute("orders", orderRepository.findAll());
 		    	model.addAttribute("user", user);
 		    	
 		    	return("profile");
