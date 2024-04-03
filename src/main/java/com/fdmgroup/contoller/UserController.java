@@ -108,6 +108,7 @@ public class UserController {
 	    } else {
 	        // Authentication failed
 	        redirectAttributes.addAttribute("error", "true");
+	        LOGGER.info("invalid username or password input: User name = " + username + " Password = " + password);
 	        return "redirect:/login";
 	    }
 	}

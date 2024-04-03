@@ -13,15 +13,18 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SpringEcommerceApplication {
 	private static final Logger LOGGER = LogManager.getLogger(SpringEcommerceApplication.class);
+
 	/**
-	 * Start the spring boot 
+	 * Start the spring boot
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
+
+//		setUp.setUp();	
+
 		SpringApplication.run(SpringEcommerceApplication.class, args);
 		LOGGER.info("Application Start");
-		
 
 	}
 }
