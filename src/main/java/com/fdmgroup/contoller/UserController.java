@@ -32,11 +32,13 @@ public class UserController {
 
 	private static final Logger LOGGER = LogManager.getLogger(UserController.class);
 
-	@Autowired
-	private UserRepository userRepository;
+	
 
 	@Autowired
-	private UserService userService;
+	public UserRepository userRepository;
+
+	@Autowired
+	public UserService userService;
 
 	@Autowired
 	private ProductService productService;
@@ -114,13 +116,13 @@ public class UserController {
 	}
 
 	@PostMapping("/order")
-	public String makeOrder(HttpServletRequest request, HttpSession session) {
+	public String makeOrder(HttpServletRequest request) {
 		LOGGER.info("start ordering");
 
 		String productName = request.getParameter("productName");
 
 		String CurrentUsername = request.getParameter("username");
-		LOGGER.info("received order: " + CurrentUsername + productName);
+		LOGGER.info("received order from: " + CurrentUsername +" ordering: " + productName);
 
 		Product product = productRepository.findByName(productName).get();
 		LOGGER.info("found " + product);

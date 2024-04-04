@@ -22,7 +22,6 @@ public class SpringEcommerceApplication {
 	 */
 	public static void main(String[] args) {
 
-//		setUp.setUp();	
 
 		SpringApplication.run(SpringEcommerceApplication.class, args);
 		LOGGER.info("Application Start");
