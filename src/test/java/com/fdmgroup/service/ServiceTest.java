@@ -2,10 +2,8 @@ package com.fdmgroup.service;
 
 import static org.junit.Assert.*;
 
-
 import org.junit.jupiter.api.Test;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 
@@ -22,33 +20,30 @@ import com.fdmgroup.model.User;
 @SpringBootTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 public class ServiceTest {
-	
+
 	@Autowired
 	private UserService userService;
-	
-	private User user1;
+
 	private User user2;
-	
+
 	@BeforeEach
 	public void setUp() {
-        user1 = new User("test","test");
-        user2 = new User("testName","testPassword","testFirstName","testLastName","testAdress");
-        userService.registerNewUser(user2);
-        
-    }
-	
+
+		user2 = new User("testName", "testPassword", "testFirstName", "testLastName", "testAdress");
+		userService.registerNewUser(user2);
+
+	}
+
 	@Test
 	public void registerNewUser() {
 		boolean actual, expected = false;
-		
-		//act 
+
+		// act
 		actual = userService.registerNewUser(user2);
-		
-		//assert
+
+		// assert
 		assertEquals(expected, actual);
-		
-		
+
 	}
-	
 
 }

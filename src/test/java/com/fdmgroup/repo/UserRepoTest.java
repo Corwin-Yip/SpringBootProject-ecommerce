@@ -3,7 +3,7 @@ package com.fdmgroup.repo;
 import static org.junit.Assert.*;
 
 import org.junit.jupiter.api.Test;
-//import org.junit.Test;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 
@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 
-import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -25,9 +24,6 @@ import com.fdmgroup.repository.UserRepository;
 public class UserRepoTest {
 
 	private User user;
-
-//	@Autowired
-//	private TestEntityManager entityManager;
 
 	@Autowired
 	private UserRepository userRepository;
@@ -43,7 +39,6 @@ public class UserRepoTest {
 		// arrange
 		User expected = user;
 		userRepository.save(user);
-//		entityManager.persist(user);
 
 		// act
 		User actual = userRepository.findByUsername("john.smith").get();

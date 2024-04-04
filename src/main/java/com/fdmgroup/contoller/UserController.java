@@ -1,7 +1,5 @@
 package com.fdmgroup.contoller;
 
-import java.util.Optional;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +30,6 @@ public class UserController {
 
 	private static final Logger LOGGER = LogManager.getLogger(UserController.class);
 
-	
-
 	@Autowired
 	public UserRepository userRepository;
 
@@ -53,7 +49,8 @@ public class UserController {
 	private OrderRepository orderRepository;
 
 	/**
-	 * This method generate a new product based on the request. The new Product will be stored in the mySQl.
+	 * This method generate a new product based on the request. The new Product will
+	 * be stored in the mySQl.
 	 * 
 	 * @param request call the AdminLogin method
 	 * @return go to the "redirect:/AdminLogin"
@@ -73,6 +70,7 @@ public class UserController {
 
 	/**
 	 * A simple get mapper class
+	 * 
 	 * @return Go to the admin.html
 	 */
 	@GetMapping("/admin")
@@ -122,7 +120,7 @@ public class UserController {
 		String productName = request.getParameter("productName");
 
 		String CurrentUsername = request.getParameter("username");
-		LOGGER.info("received order from: " + CurrentUsername +" ordering: " + productName);
+		LOGGER.info("received order from: " + CurrentUsername + " ordering: " + productName);
 
 		Product product = productRepository.findByName(productName).get();
 		LOGGER.info("found " + product);
@@ -207,7 +205,8 @@ public class UserController {
 	/**
 	 * This method set
 	 * 
-	 * @param request This is HttpServletRequest that received firstName, lastName and address.
+	 * @param request This is HttpServletRequest that received firstName, lastName
+	 *                and address.
 	 * @param session This is HttpSession add the user to the attribute.
 	 * @return Go to the profile page
 	 */

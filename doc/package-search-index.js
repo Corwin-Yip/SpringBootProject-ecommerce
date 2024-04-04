@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.fdmgroup.contoller"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.fdmgroup.contoller"},{"l":"com.fdmgroup.model"},{"l":"com.fdmgroup.repository"}];updateSearchResults();

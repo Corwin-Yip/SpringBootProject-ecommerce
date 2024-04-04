@@ -1,22 +1,22 @@
 package com.fdmgroup.controller;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.Optional;
 
-import org.junit.jupiter.api.Test;
 //import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentMatchers;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
-
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -73,12 +73,11 @@ public class ControllerTest {
 	@Mock
 	private HttpSession session;
 
-	private User user1;
 	private User user2;
 
 	@BeforeEach
 	void setUp() {
-		user1 = new User("test", "test");
+
 		user2 = new User("testName", "testPassword", "testFirstName", "testLastName", "testAdress");
 		userService.registerNewUser(user2);
 
@@ -134,7 +133,7 @@ public class ControllerTest {
 		String result = userController.getUser("testuser", model, session);
 
 		// Verify that the userService.findUser method is not called
-		verify(userService, Mockito.never()).findUser(Mockito.anyString());
+		verify(userService, Mockito.never()).findUser(ArgumentMatchers.anyString());
 
 		// Verify that the return value is as expected
 		assertEquals("redirect:/login", result);
