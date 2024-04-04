@@ -30,3 +30,35 @@
 2024-04-04T23:14:09.306+0800 INFO Started SpringEcommerceApplication in 0.35 seconds (process running for 242.497)
 2024-04-04T23:14:09.307+0800 INFO Condition evaluation unchanged
 2024-04-04T23:14:09.307+0800 INFO Application Start
+2024-04-04T23:15:12.115+0800 INFO Restarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)
+2024-04-04T23:15:12.116+0800 INFO Stopping ProtocolHandler ["http-nio-8080"]
+2024-04-04T23:15:12.119+0800 INFO Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-04T23:15:12.120+0800 INFO HikariPool-4 - Shutdown initiated...
+2024-04-04T23:15:12.124+0800 INFO HikariPool-4 - Shutdown completed.
+2024-04-04T23:15:12.207+0800 INFO Starting SpringEcommerceApplication using Java 21.0.2 with PID 85436 (C:\Users\corwi\eclipse-workspace-java21\Spring-ecommerce\target\classes started by corwi in C:\Users\corwi\eclipse-workspace-java21\Spring-ecommerce)
+2024-04-04T23:15:12.208+0800 INFO No active profile set, falling back to 1 default profile: "default"
+2024-04-04T23:15:12.286+0800 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-04T23:15:12.294+0800 INFO Finished Spring Data repository scanning in 8 ms. Found 5 JPA repository interfaces.
+2024-04-04T23:15:12.331+0800 INFO Tomcat initialized with port 8080 (http)
+2024-04-04T23:15:12.331+0800 INFO Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-04T23:15:12.332+0800 INFO Starting service [Tomcat]
+2024-04-04T23:15:12.332+0800 INFO Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-04T23:15:12.341+0800 INFO Initializing Spring embedded WebApplicationContext
+2024-04-04T23:15:12.341+0800 INFO Root WebApplicationContext: initialization completed in 132 ms
+2024-04-04T23:15:12.356+0800 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-04T23:15:12.357+0800 INFO HHH000026: Second-level cache disabled
+2024-04-04T23:15:12.360+0800 INFO No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-04T23:15:12.360+0800 INFO HikariPool-5 - Starting...
+2024-04-04T23:15:12.367+0800 INFO HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@12897d9f
+2024-04-04T23:15:12.367+0800 INFO HikariPool-5 - Start completed.
+2024-04-04T23:15:12.368+0800 WARN HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-04T23:15:12.402+0800 INFO HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-04T23:15:12.418+0800 INFO Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-04T23:15:12.482+0800 WARN spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-04T23:15:12.485+0800 INFO Adding welcome page template: index
+2024-04-04T23:15:12.520+0800 INFO LiveReload server is running on port 35729
+2024-04-04T23:15:12.522+0800 INFO Starting ProtocolHandler ["http-nio-8080"]
+2024-04-04T23:15:12.524+0800 INFO Tomcat started on port 8080 (http) with context path ''
+2024-04-04T23:15:12.525+0800 INFO Started SpringEcommerceApplication in 0.338 seconds (process running for 305.716)
+2024-04-04T23:15:12.526+0800 INFO Condition evaluation unchanged
+2024-04-04T23:15:12.526+0800 INFO Application Start
