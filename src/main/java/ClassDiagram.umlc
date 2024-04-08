@@ -98,7 +98,7 @@
   </interface>  
   <class id="11" language="java" name="com.fdmgroup.service.ProductService" project="Spring-ecommerce" 
     file="/Spring-ecommerce/src/main/java/com/fdmgroup/service/ProductService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1530" y="468"/>    
+    <position height="-1" width="-1" x="1735" y="497"/>    
     <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
       accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="false"/>      
@@ -107,7 +107,7 @@
   </class>  
   <class id="12" language="java" name="com.fdmgroup.service.UserService" project="Spring-ecommerce" 
     file="/Spring-ecommerce/src/main/java/com/fdmgroup/service/UserService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1788" y="445"/>    
+    <position height="-1" width="-1" x="1741" y="335"/>    
     <display resize-to-fit="true" stereotype="true" package="true" default-value="false" signature="true" sort="true" 
       accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="false"/>      

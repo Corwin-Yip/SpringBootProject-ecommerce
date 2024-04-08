@@ -12,9 +12,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SpringEcommerceApplication {
 	private static final Logger LOGGER = LogManager.getLogger(SpringEcommerceApplication.class);
 
+	
+	
 	/**
-	 * Start the spring boot
-	 * 
+	 *  The main method run the spring boot application
 	 * @param args
 	 */
 	public static void main(String[] args) {
